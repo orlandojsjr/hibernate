@@ -6,11 +6,8 @@
 
 package br.com.adote.hibernate.controller;
 
-import br.com.adote.hibernate.dao.PessoaDAO;
-import br.com.adote.hibernate.model.Pessoa;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import javax.inject.Inject;
 
 /**
  *
@@ -19,14 +16,7 @@ import javax.inject.Inject;
 @Controller
 public class IndexController {
     
-    @Inject
-    private PessoaDAO pessoaDAO;
-    
     @Get("/")
-    public void index() throws Exception {
-       Pessoa p = new Pessoa();
-       p.setNome("teste");
-       pessoaDAO.salvar(p);
+    public void index(){
     }
-    
 }
