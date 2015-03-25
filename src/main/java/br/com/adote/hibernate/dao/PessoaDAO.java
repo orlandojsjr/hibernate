@@ -7,12 +7,12 @@
 package br.com.adote.hibernate.dao;
 
 import br.com.adote.hibernate.model.Pessoa;
-import javax.annotation.Resource;
 
 /**
  *
  * @author Orlando
  */
+@TransacaoJPA
 public class PessoaDAO extends GenericDAO {
     
     public void salvar(Pessoa pessoa) throws Exception {
