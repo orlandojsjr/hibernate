@@ -13,9 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -43,9 +40,6 @@ public class Endereco implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "numero")
     private String numero;
-    @JoinColumn(name = "id_pessoa", referencedColumnName = "id")
-    @ManyToOne
-    private Pessoa pessoa;
 
     public Endereco() {
     }
@@ -81,14 +75,6 @@ public class Endereco implements Serializable {
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
     @Override

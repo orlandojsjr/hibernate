@@ -9,17 +9,16 @@ package br.com.adote.hibernate.model;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "pessoa", catalog = "hibernate", schema = "")
-@XmlRootElement
 public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,8 +36,9 @@ public class Pessoa implements Serializable {
     @Size(max = 50)
     @Column(name = "nome")
     private String nome;
-    @OneToMany(mappedBy = "pessoa")
-    private Set<Endereco> enderecoSet;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_pessoa")
+    private Set<Endereco> enderecos;
 
     public Pessoa() {
     }
@@ -64,13 +63,12 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    @XmlTransient
-    public Set<Endereco> getEnderecoSet() {
-        return enderecoSet;
+    public Set<Endereco> getEnderecos() {
+        return enderecos;
     }
 
-    public void setEnderecoSet(Set<Endereco> enderecoSet) {
-        this.enderecoSet = enderecoSet;
+    public void setEnderecos(Set<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 
     @Override

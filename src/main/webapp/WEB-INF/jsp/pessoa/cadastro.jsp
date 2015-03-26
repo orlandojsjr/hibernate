@@ -15,7 +15,11 @@
         <h1>Cadastro</h1>
         <form method="post" action="cadastro">
             <label>Nome:</label>
-            <input type="text" name="pessoa.nome"/>
+            <input type="text" name="pessoa.nome"/><br/>
+            <label>Endereço:</label>
+            <input type="text" name="pessoa.enderecos[].logradouro"/><br/>
+            <label>Número:</label>
+            <input type="text" name="pessoa.enderecos[].numero"/>
             <button type="submit">Cadastrar</button>
             <button type="reset">Limpar</button>
         </form>
