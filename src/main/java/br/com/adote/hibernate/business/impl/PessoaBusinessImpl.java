@@ -34,7 +34,7 @@ public class PessoaBusinessImpl implements PessoaBusiness {
 
     @Override
     public List<Pessoa> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return pessoaDAO.listar();
     }
     
 }

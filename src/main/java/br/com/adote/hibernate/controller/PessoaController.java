@@ -29,12 +29,13 @@ public class PessoaController {
     
     @Get("/cadastro")
     public void cadastro() {
+        result.include("pessoas", pessoaBusiness.listar());
     }
     
     @Post("/cadastro")
     public void cadastrar(Pessoa pessoa) {
         pessoaBusiness.cadastrar(pessoa);
-        result.redirectTo(this).sucesso();
+        result.redirectTo(this).cadastro();
     }
     
     @Get("/sucesso")

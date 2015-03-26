@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -42,5 +43,9 @@ public class GenericDAO {
 
     protected void excluir(Serializable serializable) throws Exception {
         em.remove(em.merge(serializable));
-    }    
+    }  
+    
+    protected List buscarTodos(Class clazz) {
+        return em.createQuery("from " + clazz.getName()).getResultList();
+    }
 }

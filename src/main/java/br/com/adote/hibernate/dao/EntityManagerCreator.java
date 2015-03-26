@@ -30,7 +30,7 @@ public class EntityManagerCreator {
         return em;
     }
 
-    public void finaliza(@Disposes EntityManager manager) {
+    public void finaliza(EntityManager manager) {
         emf.close();
     }
 }

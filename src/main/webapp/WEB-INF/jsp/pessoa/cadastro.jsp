@@ -4,6 +4,7 @@
     Author     : Orlando
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,5 +24,23 @@
             <button type="submit">Cadastrar</button>
             <button type="reset">Limpar</button>
         </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Endereco</td>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${pessoas}" var="pessoa">
+                        <tr>
+                            <td>${pessoa.nome}</td>
+                            <c:forEach items="${pessoa.enderecos}" var="endereco">
+                                <td>${endereco.logradouro} - ${endereco.numero}</td>                                
+                            </c:forEach>
+                        </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </body>
 </html>
