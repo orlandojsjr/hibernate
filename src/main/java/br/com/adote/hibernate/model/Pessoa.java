@@ -6,6 +6,7 @@
 
 package br.com.adote.hibernate.model;
 
+import br.com.adote.hibernate.proxy.PessoaInterface;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -27,7 +28,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "pessoa", catalog = "hibernate", schema = "")
-public class Pessoa implements Serializable {
+public class Pessoa implements Serializable, PessoaInterface {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
